@@ -138,6 +138,10 @@ public class Animal extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          ConnectionBD conexion = new ConnectionBD();
+          request.setCharacterEncoding("UTF-8"); // Configura la codificación de la solicitud
+    response.setCharacterEncoding("UTF-8"); // Configura la codificación de la respuesta
+    response.setContentType("text/html; charset=UTF-8"); // Establece el tipo de contenido
+    
          String method = request.getParameter("_method");
          if (method != null && method.equalsIgnoreCase("PUT")) {
         doPut(request, response);  // Reenvía la solicitud a doPut si es un update
